@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<style>
+	   #nav{margin-left: 100px;margin-top: 30px;width: 300px;height: 60px;}
+	   #nav button{width: 80px;height: 40px;margin-top: 5px;margin-left: 10px;}
+	   .content div{width: 280px;margin-left: 108px;background: tomato;height: 300px;display: none;}
+	   .active{background-color: red;}
+	   .content .show{display: block;}
+	</style>
+	<script src='js/jQuery-3.1.1.min.js'></script>
+</head>
+<body>
+	<div id='nav'>
+		<button class='active'>十九大</button>
+		<button>军事新闻</button>
+		<button>八卦新闻</button>
+	</div>
+	<div class='content'>
+		<div>喜大普奔</div>
+		<div>普京发布高超音速武器</div>
+		<div>宝强又结婚了</div>
+	</div>
+	
+</body>
+</html>
+<script>
+$('#nav button').click(function(){
+	$(this).addClass('active').siblings().removeClass('active');
+	var i = $(this).index();//获取button的索引值
+	console.log(i);
+
+	$('.content div').eq(i).addClass('show').siblings().removeClass('show');
+})
+</script>
